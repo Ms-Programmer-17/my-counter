@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter</title>
+    <style>
+        
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        div{
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+        p{
+            font-size: 30px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        button{
+            height: 50px;
+            width: 200px;
+            font-size: 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            background-color: rgb(170, 241, 241);
+            border: 2px solid rgb(0, 0, 0);
+        }
+    </style>
+</head>
+
+
+<body>
+    <div>
+
+        <h1>Counter :) </h1>
+        
+        <p id="taunt"></p>
+        <button >Click to get points</button>
+        <p id="secret" style='display:none'  >
+            
+            <span id="points">0</span>
+            <span id="anitha" style="cursor: pointer;"></span>
+    </div>
+    </p>
+</body>
+<script>
+    let secret=document.getElementById('secret')
+    let T=document.getElementById('taunt')
+    let p=document.getElementById('points')
+    let ani=document.getElementById('anitha')
+    let but=document.querySelector('button')
+
+    let taunts=['try hard!!','can you click?','seems impossible?'
+    ,'are you giving up already?','keep clicking!!',
+    'i know you would not stop!','good luck dear','oh leaving already?'
+]
+
+let points=0;
+let clicks=0;
+
+
+
+
+  let color=['yellow','blue','red','green','orange','pink']
+        
+        let but_color=['red','aqua','blue','green','yellow','orange','pink']
+
+        
+        
+        
+        but.addEventListener('click',()=>{
+            clicks++;
+            
+                // let runcolor=Math.floor(Math.random()*color.length)    
+                // document.body.style.backgroundColor=color[runcolor]
+                // let Butcolor=Math.floor(Math.random()*but_color.length)
+                // button.style.backgroundColor=but[Butcolor]
+            
+    
+            if(clicks===10){
+                T.textContent='want a hint? type ANITHA only!'
+            secret.style.display='block'
+           
+        }
+    
+        else{
+        
+            T.textContent=taunts[Math.floor(Math.random()*taunts.length)]
+        }
+    })
+     document.addEventListener("keyup", function () {
+        if (clicks < 10) return;      // before the hint, keys do nothing
+        points++;
+        p.textContent = "points :"+ points;
+
+     
+        // i need the game to be stoped after points reach 100 and display a message "thank you for playing" and hide the points.
+        
+    })
+</script>
+</html>
